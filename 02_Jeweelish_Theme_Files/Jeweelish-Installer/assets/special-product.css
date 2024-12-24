@@ -1,0 +1,92 @@
+.special-product .card:not(.ratio) {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  gap: 15px;
+  background-color: var(--color-base-background-2);
+}
+.special-product .title-wrapper--no-top-margin > .title {
+  margin-top: 0;
+  color: var(--color-foreground);
+}
+.special-product .collection slider-component:not(.page-width-desktop) {
+  padding: 0;
+}
+.special-product .card__inner {
+  width: 98%;
+}
+.special-product .product_decs {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.special-product
+  .product-grid
+  .card__content
+  .card__information
+  h3.card__heading
+  a {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.4rem;
+}
+.special-product .price {
+  font-size: 1.6rem;
+}
+.special-product .button--full-width {
+  width: auto;
+}
+.special-product .quick-add__submit {
+  min-width: 200px;
+}
+.special-product .product-grid .card__information {
+  padding: 2rem 0;
+}
+.special-product .card__content {
+  padding-left: 0;
+}
+.special-product .color-accent-1 h2.title,
+.special-product .color-accent-2 h2.title {
+  color: var(--color-base-background-2);
+}
+.special-product .product-grid .card-wrapper .variant-links {
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  bottom: 20px;
+}
+.special-product .owl-carousel .owl-nav span::after {
+  background-image: url(arrow-white.svg);
+}
+.special-product .card-wrapper .quick-add {
+  position: static;
+  opacity: 1;
+}
+.special-product .product-grid .card-wrapper:hover .card.card--card {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+@media screen and (max-width: 989px) {
+  .special-product .card__inner {
+    width: 430px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .special-product .card:not(.ratio) {
+    flex-direction: column;
+  }
+  .special-product .card__inner {
+    width: 283px;
+    margin: 0;
+  }
+  .special-product .product-grid .card__information {
+    padding: 0;
+  }
+  .special-product .card__content {
+    padding-left: 1.5rem;
+  }
+}

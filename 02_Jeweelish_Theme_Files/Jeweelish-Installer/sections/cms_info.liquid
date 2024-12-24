@@ -1,0 +1,125 @@
+{{ 'cms_info.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
+    margin-top: {{ section.settings.margin_top | times: 0.5 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+      margin-top: {{ section.settings.margin_top | times: 1 | round: 0 }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="page-width">
+  <div class="cms_info">
+    {% if section.blocks.size > 0 %}
+      <div class="info-wrapper">
+        <div class="cms_information">
+          {%- assign i = 1 -%}
+          {% for block in section.blocks %}
+            <div class="info_service info_service-{{ i }} color-{{ block.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+              <div class="info-block info-block-{{ i }}">
+                <div class="info-description">
+                  <div class="info-title">{{ block.settings.text | escape }}</div>
+                </div>
+              </div>
+            </div>
+            {%- assign i = i | plus: 1 -%}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.cms_info.name",
+  "tag": "section",
+  "class": "spaced-section section",
+  "max_blocks": 4,
+      "settings": [
+    	{
+          "type": "header",
+          "content": "t:sections.all.padding.section_padding_heading"
+        },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 18
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 18
+        }
+	],
+    "blocks": [
+       {
+        "type": "block",
+        "name": "t:sections.cms_info.name",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "t:sections.cms_info.blocks.settings.text.label",
+            "default": "FREE Delivery over ₹499. Fulfilled by tooliza."
+          },
+          {
+            "type": "select",
+            "id": "color_scheme",
+            "options": [
+              {
+                "value": "accent-1",
+                "label": "t:sections.all.colors.accent_1.label"
+              },
+              {
+                "value": "accent-3",
+                "label": "t:sections.all.colors.accent_3.label"
+              },
+              {
+                "value": "accent-2",
+                "label": "t:sections.all.colors.accent_2.label"
+              },
+              {
+                "value": "background-1",
+                "label": "t:sections.all.colors.background_1.label"
+              },
+              {
+                "value": "background-2",
+                "label": "t:sections.all.colors.background_2.label"
+              },
+              {
+                "value": "inverse",
+                "label": "t:sections.all.colors.inverse.label"
+              }
+            ],
+            "default": "accent-1",
+            "label": "t:sections.all.colors.label"
+          }
+        ]
+      }
+    ],
+  "presets": [
+      {
+        "name": "t:sections.cms_info.presets.name"
+      }
+    ]
+}
+{% endschema %}

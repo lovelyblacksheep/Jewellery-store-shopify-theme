@@ -1,0 +1,14 @@
+.image-carousel-bar__item {
+  list-style: none;
+  display: inline-block;
+  vertical-align: middle;
+  padding-inline: 5px;
+}
+.image-carousel-bar__image {
+  max-width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+.image-carousel-bar.owl-carousel.owl-loaded {
+  padding: 0;
+}

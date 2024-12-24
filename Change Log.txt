@@ -1,0 +1,75 @@
+=============================
+Jeweelish - Modern Jewelry Store Shopify 2.0 Responsive Theme
+=============================
+Note: Please do not replace any files/folder from new upgraded theme package on your current live store. 
+Before Update Please take back up of your old theme. && please compare your old file with our updated file and then change it.
+And If you want to migarte your theme in new design then please prefer Fresh Installation.
+Otherwise you can use your old demo.
+
+=================================================
+
+Updated Version: 1.4.0
+=============
+## Date[20/08/2024]
+
+- Fixed vertical thumbnail slider issue on product detail page
+- Resolve miscellaneous css related bugs
+
+-------------------
+Updated File path:
+
+	config/settings_schema.json
+	assets/base.css
+	assets/quick-add.css
+	assets/section-main-product.css
+
+=================================================
+
+Updated Version: 1.3.0
+=============
+## Date[11/07/2024]
+
+- Fixed social icon display issue in mobile device
+- Update new twitter icon
+
+-------------------
+Updated File path:
+	
+	section/footer.liquid
+	snippets/icon-twitter.liquid
+	assets/component-list-social.css
+
+=================================================
+
+Updated Version: 1.2.0
+=============
+## Date[11/02/2024]
+
+- Removed Product Review app
+- Added AirReview app for product review features
+
+-------------------
+Updated File path:
+	section/main-product.liquid
+	
+=================================================
+
+Updated Version: 1.1.0
+=============
+## Date[25/07/2023]
+
+- Fixed click issue with mobile menu item
+- Fixed css issue with mobile layout
+
+-------------------
+Updated File path:
+
+	sections/header-bottom.liquid
+	snippets/sidecategory.liquid
+	assets/component-menu-drawer.css
+
+=================================================
+
+Released Version: 1.0.0
+=============
+- Initial Release

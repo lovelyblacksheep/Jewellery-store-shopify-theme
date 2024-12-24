@@ -1,0 +1,179 @@
+{% capture time_check %}
+{% for tag in product.tags %}
+{%if tag contains 'Time_' %}
+{% assign tag_time = tag | split : 'Time_' | last %}
+{{ tag_time }}
+{% endif %}
+{%  endfor %}
+{% endcapture %}
+{% if tag_time %}
+  <div class="flip-countdown simple-countdown">
+    <div class="countdown-text quick-add-hidden">{{ 'sections.countdown.countdown_text' | t }}</div>
+    <div
+      class="countdown-container flip-countdown countdown-block content-container"
+      data-countdown="{{ tag_time }}"
+    ></div>
+  </div>
+
+  <style>
+        .flip-countdown{
+          display: flex;
+          margin: 0;
+          justify-content: flex-start;
+        }
+        .countdown-container.countdown-block {
+          border: 2px solid var(--color-base-accent-1);
+          display: inline-block;
+          position: relative;
+          background-color: var(--color-base-background-2);
+          padding: 6px;
+        }
+        .countdown-block > span {
+          width: auto;
+          display: inline-flex;
+          flex-direction: column;
+          text-align: center;
+          color: var(--color-base-accent-2);
+          position: relative;
+          margin-inline: 12px;
+        }
+        .countdown-block > span:first-child {
+          margin-inline-start: 12px;
+        }
+        .countdown-block > span:last-child {
+          margin-inline-end: 12px;
+        }
+        .countdown-block > span::after {
+          content: ":";
+          position: absolute;
+          right: -15px;
+          left: auto;
+          top: 8px;
+          font-size: 14px;
+        }
+        .countdown-block > span:last-child::after {
+          display: none;
+        }
+        .countdown-block .countdown .time {
+          width: auto;
+          display: inline-block;
+          vertical-align: top;
+          font-size: 18px;
+          line-height: inherit;
+          font-weight: 700;
+          line-height: 22px;
+        }
+        .countdown-block span span.time-txt {
+          display: inline-block;
+          text-align: center;
+          width: auto;
+          font-size: 14px;
+          font-weight: 400;
+        }
+        .flip-countdown .counter-text {
+          color: rgb(var(--color-base-outline-button-labels));
+          margin-block: 20px;
+          display: block;
+        }
+        .countdown-text{
+          color: red;
+          font-weight: 400;
+          padding: 0 0 5px;
+          clear: both;
+          line-height: initial;
+          display: none;
+        }
+    /*product-page */
+    .product.grid .product__info-container .countdown-container.countdown-block {
+        margin: 0;
+        border: 0;
+        background-color: transparent;
+        padding: 0;
+    }
+    .product.grid .product__info-container .flip-countdown.simple-countdown {
+      position: relative;
+      left: 0;
+      margin: 0;
+      right: auto;
+      justify-content: flex-start;
+      flex-direction: column;
+      bottom: 0;
+    }
+    .product.grid .product__info-container .flip-countdown.simple-countdown .countdown-block .countdown .time {
+    	font-size: 16px;
+    	width: 44px;
+    	height: 44px;
+    	border: 1px solid var(--color-base-border);
+    	border-radius: var(--buttons-radius);
+    	line-height: initial;
+    	padding: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+    }
+    .product.grid .product__info-container .flip-countdown.simple-countdown .countdown-block > span {
+      color: var(--color-base-accent-2);
+    }
+    .product.grid .product__info-container .flip-countdown.simple-countdown .countdown-block > span:last-child  {
+      color: var(--color-base-accent-3);
+    }
+    .product.grid .product__info-container .flip-countdown.simple-countdown .countdown-block > span:last-child .time {
+        border: 1px solid var(--color-base-accent-3);
+    }
+    .product.grid .product__info-container .flip-countdown.simple-countdown .countdown-block > span {
+      flex-direction: column;
+    }
+    .product.grid .product__info-container .flip-countdown.simple-countdown .countdown-block > span::after {
+      top: 8px;
+    }
+    .product.grid .product__info-container .flip-countdown.simple-countdown .countdown-text{
+      display: block;
+    }
+    .product.grid .product__info-container .flip-countdown.simple-countdown span:first-child {
+    	margin-inline-start: 0;
+    }
+    .product.grid .product__info-container .flip-countdown .icon {
+    	display: none;
+    }
+    .product.grid .product__info-container .countdown-block span span.time-txt {
+      display: block;
+    }
+    @media (max-width: 1269px) and (min-width: 990px) {
+      .countdown-block > span:first-child {
+      	margin-inline-start: 6px;
+      }
+      .countdown-block > span {
+      	margin-inline: 6px;
+      }
+      .countdown-block > span:last-child {
+      	margin-inline-end: 6px;
+      }
+      .countdown-block .countdown .time {
+      	font-size: 16px;
+      	line-height: 20px;
+      }
+      .countdown-block > span::after {
+      	right: -8px;
+      }
+    }
+    @media (max-width: 479px) {
+      .product.grid .product__info-container .countdown-block > span:first-child {
+      	margin-inline-start: 6px;
+      }
+      .product.grid .product__info-container .countdown-block > span {
+      	margin-inline: 6px;
+      }
+      .product.grid .product__info-container .countdown-block > span:last-child {
+      	margin-inline-end: 6px;
+      }
+      .product.grid .product__info-container .countdown-block > span::after {
+      	right: -8px;
+      }
+      .product.grid .product__info-container .countdown-block .countdown .time {
+      	font-size: 16px;
+      	line-height: 20px;
+      }
+    }
+  </style>
+{% endif %}
